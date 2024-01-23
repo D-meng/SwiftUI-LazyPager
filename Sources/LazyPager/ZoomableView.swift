@@ -184,6 +184,17 @@ class ZoomableView<Element, Content: View>: UIScrollView, UIScrollViewDelegate {
         zoom(to: CGRect(x: x, y: y, width: w, height: h), animated: true)
     }
     
+    func zoom(at point: CGPoint, scale: CGFloat, animated: Bool) {
+        let mid = lerp(from: minimumZoomScale, to: maximumZoomScale, by: scale)
+        let newZoomScale = zoomScale == minimumZoomScale ? mid : minimumZoomScale
+        let size = bounds.size
+        let w = size.width / newZoomScale
+        let h = size.height / newZoomScale
+        let x = point.x - (w * 0.5)
+        let y = point.y - (h * 0.5)
+        zoom(to: CGRect(x: x, y: y, width: w, height: h), animated: animated)
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         

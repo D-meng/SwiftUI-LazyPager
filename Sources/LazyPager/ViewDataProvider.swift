@@ -63,7 +63,7 @@ public class ViewDataProvider<Content: View, DataCollecton: RandomAccessCollecti
         guard let dta = data[safe: zoomableView.index] else { return }
         zoomableView.hostingController.rootView = viewLoader(dta)
         zoomableView.config = config
-        zoomableView.zoom(at: zoomableView.center, scale: config.minZoom)
+        zoomableView.zoom(at: zoomableView.center, scale: config.minZoom,animated: false)
     }
     
     // MARK: UIViewController
