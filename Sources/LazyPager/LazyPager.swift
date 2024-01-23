@@ -142,6 +142,7 @@ extension LazyPager: UIViewControllerRepresentable {
         
         uiViewController.viewLoader = viewLoader
         uiViewController.data = data
+        uiViewController.config = config
         defer { uiViewController.reloadViews() }
         if page.wrappedValue != uiViewController.pagerView.currentIndex {
             // Index was explicitly updated
