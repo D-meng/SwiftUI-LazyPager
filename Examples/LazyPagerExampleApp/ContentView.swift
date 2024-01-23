@@ -24,6 +24,8 @@ struct ContentView: View {
     @State var show = true
     @State var opacity: CGFloat = 1
     @State var index = 0
+    @State var templateHeight = 100.0
+    @State var minZoom = 1.0
     
     var body: some View {
         VStack {
@@ -34,7 +36,8 @@ struct ContentView: View {
                         .aspectRatio(contentMode: .fit)
                 }
             }
-            .zoomable(min: 1.5, max: 5)
+            .zoomable(min:minZoom, max: 5)
+            .frame(height: templateHeight)
 //            .onDismiss(backgroundOpacity: $opacity) {
 //                show = false
 //            }
@@ -46,6 +49,13 @@ struct ContentView: View {
 //            .ignoresSafeArea()
             .frame(height: 200)
             .background(.white)
+            Spacer()
+            Button(action: {
+//                minZoom += 0.2
+                templateHeight += 10
+            }, label: {
+                Text("Button")
+            })
         }
     }
 }

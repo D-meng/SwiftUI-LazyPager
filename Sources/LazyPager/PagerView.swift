@@ -167,8 +167,8 @@ class PagerView<Element, Loader: ViewLoader, Content: View>: UIScrollView, UIScr
     
     func reloadViews() {
         for view in loadedViews {
-            view.zoom(at: view.center, scale: config.minZoom)
             viewLoader?.updateHostedView(for: view)
+            view.zoomScale = config.minZoom
         }
     }
     
