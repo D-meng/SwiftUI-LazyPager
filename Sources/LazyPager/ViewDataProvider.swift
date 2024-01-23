@@ -61,7 +61,9 @@ public class ViewDataProvider<Content: View, DataCollecton: RandomAccessCollecti
     
     func updateHostedView(for zoomableView: ZoomableView<Element, Content>) {
         guard let dta = data[safe: zoomableView.index] else { return }
-        zoomableView.zoomScale = config.minZoom
+        if !pagerView.isFirstLoad {
+            zoomableView.zoomScale = config.minZoom
+        }
         zoomableView.hostingController.rootView = viewLoader(dta)
     }
     
