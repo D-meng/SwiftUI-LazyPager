@@ -24,6 +24,7 @@ struct ContentView: View {
     @State var show = true
     @State var opacity: CGFloat = 1
     @State var index = 0
+    
     var body: some View {
         VStack {
             LazyPager(data: data, page: $index) { element in
@@ -34,18 +35,17 @@ struct ContentView: View {
                 }
             }
             .zoomable(min: 1.5, max: 5)
-            .onDismiss(backgroundOpacity: $opacity) {
-                show = false
-            }
-            .onTap {
-                print("tap")
-            }
+//            .onDismiss(backgroundOpacity: $opacity) {
+//                show = false
+//            }
+//            .onTap {
+//                print("tap")
+//            }
 //            .background(.black.opacity(opacity))
 //            .background(ClearFullScreenBackground())
 //            .ignoresSafeArea()
             .frame(height: 200)
             .background(.white)
-            Spacer()
         }
     }
 }

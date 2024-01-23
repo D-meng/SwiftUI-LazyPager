@@ -61,7 +61,7 @@ public class ViewDataProvider<Content: View, DataCollecton: RandomAccessCollecti
     
     func updateHostedView(for zoomableView: ZoomableView<Element, Content>) {
         guard let dta = data[safe: zoomableView.index] else { return }
-        
+        zoomableView.zoomScale = 1.0
         zoomableView.hostingController.rootView = viewLoader(dta)
     }
     
