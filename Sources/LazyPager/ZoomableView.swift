@@ -18,12 +18,7 @@ class ZoomableView<Element, Content: View>: UIScrollView, UIScrollViewDelegate {
     var contentBottomToFrame: NSLayoutConstraint!
     var contentBottomToView: NSLayoutConstraint!
     
-    var config: Config {
-        didSet(newValue) {
-            maximumZoomScale = newValue.maxZoom
-            minimumZoomScale = newValue.minZoom
-        }
-    }
+    var config: Config
     var bottomView: UIView
     
     var allowScroll: Bool = true {
