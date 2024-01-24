@@ -190,7 +190,9 @@ class ZoomableView<Element, Content: View>: UIScrollView, UIScrollViewDelegate {
         let h = size.height / scale
         let x = point.x - (w * 0.5)
         let y = point.y - (h * 0.5)
-        zoom(to: CGRect(x: x, y: y, width: w, height: h), animated: animated)
+        zoom(to: CGRect(x: x, y: y, width: w, height: h), animated: false)
+        zoomScale = maximumZoomScale
+        zoom(at: self.center, scale: scale)
     }
     
     override func layoutSubviews() {
