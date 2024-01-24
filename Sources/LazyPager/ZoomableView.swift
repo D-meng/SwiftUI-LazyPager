@@ -209,6 +209,7 @@ class ZoomableView<Element, Content: View>: UIScrollView, UIScrollViewDelegate {
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
         isZoomHappening = false
         updateState()
+        self.zoomMinScale(at: self.center, scale: config.minZoom,animated: true)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
