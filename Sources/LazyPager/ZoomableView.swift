@@ -179,8 +179,8 @@ class ZoomableView<Element, Content: View>: UIScrollView, UIScrollViewDelegate {
     }
     
     func zoom(at point: CGPoint, scale: CGFloat) {
-        let mid = lerp(from: minimumZoomScale, to: maximumZoomScale, by: scale)
-        let newZoomScale = zoomScale == minimumZoomScale ? mid : minimumZoomScale
+//        let mid = lerp(from: minimumZoomScale, to: maximumZoomScale, by: scale)
+        let newZoomScale = zoomScale == minimumZoomScale ? maximumZoomScale : minimumZoomScale
         let size = bounds.size
         let w = size.width / newZoomScale
         let h = size.height / newZoomScale
@@ -190,7 +190,6 @@ class ZoomableView<Element, Content: View>: UIScrollView, UIScrollViewDelegate {
     }
     
     func zoomMinScale(at point: CGPoint, scale: CGFloat, animated: Bool) {
-        let newZoomScale = scale
         let size = bounds.size
         let w = size.width / scale
         let h = size.height / scale
