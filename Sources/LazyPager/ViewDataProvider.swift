@@ -62,11 +62,10 @@ public class ViewDataProvider<Content: View, DataCollecton: RandomAccessCollecti
     func updateHostedView(for zoomableView: ZoomableView<Element, Content>) {
         guard let dta = data[safe: zoomableView.index] else { return }
         zoomableView.hostingController.rootView = viewLoader(dta)
-//        zoomableView.zoomScale = 1
+        zoomableView.zoomScale = 1
         zoomableView.config = config
         zoomableView.maximumZoomScale = config.maxZoom
         zoomableView.minimumZoomScale = config.minZoom
-        zoomableView.zoomMinScale(at: zoomableView.center, scale: 1, animated: true)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             zoomableView.zoomMinScale(at: zoomableView.center, scale: self.config.minZoom, animated: true)
         }
