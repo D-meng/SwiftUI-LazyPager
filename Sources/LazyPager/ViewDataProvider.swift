@@ -64,9 +64,7 @@ public class ViewDataProvider<Content: View, DataCollecton: RandomAccessCollecti
         zoomableView.hostingController.rootView = viewLoader(dta)
         zoomableView.config = config
         zoomableView.zoomScale = 1
-        zoomableView.maximumZoomScale = config.maxZoom
-        zoomableView.minimumZoomScale = config.minZoom
-        zoomableView.zoomMinScale(at: zoomableView.center, scale: config.minZoom, animated: false)
+        zoomableView.zoomMinScale(at: zoomableView.center, scale: config.minZoom, animated: true)
     }
     
     // MARK: UIViewController
