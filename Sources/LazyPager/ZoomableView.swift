@@ -123,7 +123,7 @@ class ZoomableView<Element, Content: View>: UIScrollView, UIScrollViewDelegate {
         
         DispatchQueue.main.async {
             self.updateState()
-            self.zoomMinScale(at: self.center, scale: config.minZoom,animated: true)
+//            self.zoomMinScale(at: self.center, scale: config.minZoom,animated: true)
         }
     }
     
