@@ -185,19 +185,12 @@ class ZoomableView<Element, Content: View>: UIScrollView, UIScrollViewDelegate {
     }
     
     func zoomMinScale(at point: CGPoint, scale: CGFloat, animated: Bool) {
-        var size = bounds.size
-        var w = size.width / scale
-        var h = size.height / scale
-        var x = point.x - (w * 0.5)
-        var y = point.y - (h * 0.5)
-        zoom(to: CGRect(x: x, y: y, width: w, height: h), animated: false)
-
-        size = bounds.size
-        w = size.width / minimumZoomScale
-        h = size.height / minimumZoomScale
-        x = point.x - (w * 0.5)
-        y = point.y - (h * 0.5)
-        zoom(to: CGRect(x: x, y: y, width: w, height: h), animated: true)
+        let size = bounds.size
+        let w = size.width / scale
+        let h = size.height / scale
+        let x = point.x - (w * 0.5)
+        let y = point.y - (h * 0.5)
+        zoom(to: CGRect(x: x, y: y, width: w, height: h), animated: animated)
     }
     
     override func layoutSubviews() {
