@@ -112,6 +112,7 @@ public extension LazyPager {
         this.config.minZoom = min
         this.config.maxZoom = max
         this.config.doubleTapSetting = doubleTapGesture
+        
         return this
     }
     
